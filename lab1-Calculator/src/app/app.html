@@ -1,0 +1,31 @@
+<main class="calculator">
+  <section class="calculator-card" aria-labelledby="calculator-title">
+
+    <div class="inputs">
+      <label>
+        First number
+        <input type="number" [(ngModel)]="firstNumber"  aria-label="First number" />
+      </label>
+      <label>
+        Second number
+        <input type="number" [(ngModel)]="secondNumber" aria-label="Second number" />
+      </label>
+    </div>
+    <p class="result" aria-live="polite">
+      <span>Result</span>
+      <strong>{{ result || '—' }}</strong>
+    </p>
+
+    @if (error) {
+      <p class="error" role="alert">{{ error }}</p>
+    }
+
+    <div class="operations" aria-label="Calculator operations">
+      <button type="button" (click)="calculate('+')"> <span>+</span></button>
+      <button type="button" (click)="calculate('-')"> <span>−</span></button>
+      <button type="button" (click)="calculate('*')"> <span>×</span></button>
+      <button type="button" (click)="calculate('/')"> <span>÷</span></button>
+    </div>
+
+  </section>
+</main>
